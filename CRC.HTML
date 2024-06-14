@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Design for Mastermind Plumbing and Maintenance</title>
+    <style>
+        .table-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .table-row > div {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .table-container {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .table-container th, .table-container td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        .table-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="table-title">Database Design for Mastermind Plumbing and Maintenance</h2>
+    
+    <div class="table-row">
+        <div>
+            <h3>Customers Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CustomerID</td>
+                            <td>INT (Primary Key, Auto Increment)</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>VARCHAR(20)</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h3>Services Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ServiceID</td>
+                            <td>INT (Primary Key, Auto Increment)</td>
+                        </tr>
+                        <tr>
+                            <td>ServiceName</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>TEXT</td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td>DECIMAL(10, 2)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h3>Payments Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PaymentID</td>
+                            <td>INT (Primary Key, Auto Increment)</td>
+                        </tr>
+                        <tr>
+                            <td>AppointmentID</td>
+                            <td>INT (Foreign Key - References Customers Table CustomerID)</td>
+                        </tr>
+                        <tr>
+                            <td>Amount</td>
+                            <td>DECIMAL(10, 2)</td>
+                        </tr>
+                        <tr>
+                            <td>PaymentDate</td>
+                            <td>DATE</td>
+                        </tr>
+                        <tr>
+                            <td>PaymentMethod</td>
+                            <td>VARCHAR(50)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h3>Admin Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AdminID</td>
+                            <td>INT (Primary Key, Auto Increment)</td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>VARCHAR(50)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-row">
+        <div>
+            <h3>PayPal Gateway Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GatewayID</td>
+                            <td>INT (Primary Key, Auto Increment)</td>
+                        </tr>
+                        <tr>
+                            <td>MerchantID</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>APIUsername</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>APIPassword</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Signature</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h3>Contact Us Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ContactID</td>
+                            <td>INT (Primary Key, Auto Increment)</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Message</td>
+                            <td>TEXT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h3>Service Team Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TeamID</td>
+                            <td>INT (Primary Key, Auto Increment)</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>VARCHAR(20)</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>VARCHAR(255)</td>
+                        </tr>
+                        <tr>
+                            <td>Position</td>
+                            <td>VARCHAR(50)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

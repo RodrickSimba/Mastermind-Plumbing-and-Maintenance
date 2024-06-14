@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Out Fee Regions</title>
+</head>
+<body>
+    <div id="paypal-container"></div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=BAABsQ8cg0165M2flGR-J-RcCPXduJwMc3F9nzd1XqPSD0ur5MNwLVWnhq5t-RwPxaZT7BbACQDC8PxQ5A&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+    <script>
+        var paypalContainer = document.getElementById("paypal-container");
+        paypalContainer.innerHTML = '<div id="paypal-container-R7RZ9G9Y5H6HY"></div>';
+        paypal.HostedButtons({
+            hostedButtonId: "R7RZ9G9Y5H6HY",
+        }).render("#paypal-container-R7RZ9G9Y5H6HY");
+    </script>
+</body>
+</html>
